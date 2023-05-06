@@ -1,15 +1,15 @@
-	/*----- constants -----*/
+/*----- constants -----*/
 
 
-	/*----- state variables -----*/
-	let secretWord;
-	let results;
-	let correctGuess;
-	
-	/*----- cached elements  -----*/
+/*----- state variables -----*/
+let secretWord;
+let results;
+let correctGuess;
+
+/*----- cached elements  -----*/
 
 
-	/*----- event listeners -----*/
+/*----- event listeners -----*/
 
 
-	/*----- functions -----*/
+/*----- functions -----*/
