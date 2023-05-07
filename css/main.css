@@ -9,6 +9,8 @@ body {
     display: grid;
     grid-template-rows: repeat(6, 1fr);
     background-image: url(https://media2.giphy.com/media/FlodpfQUBSp20/giphy.gif?cid=ecf05e47gppuimu8fgivn799dmnrnjvgep8cgrwooc3xa4zk&ep=v1_gifs_search&rid=giphy.gif&ct=g);
+    background-size: contain;
+    
 }
 
 .flex-itm {
@@ -32,18 +34,44 @@ h1 {
 }
 
 p {
-    font-size: ;
+    font-size: 1.9vmin;
+    color: white;
+}
+
+img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div {
+    color: white;
+    letter-spacing: 1vmin;
+    font-size: 5vmin;
 }
 main > button {
-    color: blue;
-    margin: auto;
+    color: white;
+    background-color: black;
+    /* margin: auto; */
+    margin-right: .6vmin;
+    /* margin: 0vmin .5vmin 0vmin .5vmin; */
     font-size: 3vmin;
+    /* flex-wrap: wrap; */
+}
+
+main > button:hover {
+    background-color: white;
+    color: black;
 }
 
 #play {
+    font-size: 3.3vmin;
     align-self: center;
     /* flex-shrink: 0;  */
-    color: purple;
+    color: white;
+    background-color: black;
     margin-left: auto;
     margin-right: auto;
+}
+#play:hover {
+    background-color: red;
 }
