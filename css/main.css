@@ -10,7 +10,9 @@ body {
     grid-template-rows: repeat(6, 1fr);
     background-image: url(https://media2.giphy.com/media/FlodpfQUBSp20/giphy.gif?cid=ecf05e47gppuimu8fgivn799dmnrnjvgep8cgrwooc3xa4zk&ep=v1_gifs_search&rid=giphy.gif&ct=g);
     /* background-size: contain; */
-    
+    /* background-size: cover; */
+    /* background-image: url(https://e1.pxfuel.com/desktop-wallpaper/855/707/desktop-wallpaper-astronaut-in-the-ocean-neon-spaceman.jpg); */
+    font-family: 'Comic Neue', cursive;
 }
 
 .flex-itm {
@@ -21,7 +23,8 @@ body {
 
 h1 {
     font-size: 4vmin;
-    color: #fff;
+    font-family: 'Comic Neue', cursive;
+    color: black;
     text-shadow:
         0 0 7px #fff,
         0 0 10px #fff,
@@ -36,6 +39,23 @@ h1 {
 p {
     font-size: 1.9vmin;
     color: white;
+    font-family: 'Comic Neue', cursive;
+    border: 2px solid #dadada;
+    border-radius: 10px;;
+    outline: none;
+    border-color: #4b0ee5;;
+    box-shadow: 0 0 10px #4b0ee5;;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #4b0ee5,
+        0 0 82px #4b0ee5,
+        0 0 92px #4b0ee5,
+        0 0 102px #4b0ee5,
+        0 0 151px #4b0ee5;
 }
 
 img {
@@ -49,6 +69,7 @@ div {
     font-size: 5vmin;
 }
 main > button {
+    font-family: 'Comic Neue', cursive;
     color: white;
     background-color: black;
     /* margin: auto; */
@@ -64,6 +85,7 @@ main > button:hover {
 }
 
 #play {
+    font-family: 'Comic Neue', cursive;
     font-size: 3.3vmin;
     align-self: center;
     /* flex-shrink: 0;  */
