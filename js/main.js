@@ -1,9 +1,8 @@
 /*----- constants -----*/
 const Words = ['MOON', 'NOVA', 'PLANET', 'ROCKET'];
 const MAX_WRONG_GUESSES = 6;
-const SPACEMAN_LOOKUP = {
-	
-}
+const imgPath = imgs/spaceman-0${wrongGuesses.length};
+
 /*----- state variables -----*/
 /*let result;   correct word? Maybe this will come ones I start with the functions   */
 let correctWord;
@@ -34,7 +33,7 @@ function initialize() {
 	correctWord = null;
 	playerWord = '';
 	wrongGuesses = 0;
-	winner = playerWord;
+	winner = null;
 	render();
 }
 
@@ -45,15 +44,30 @@ function render() {
 	/*  to toggle the play again button also to make the apphabet  buttons un clocalbe */
 	renderButton();
 }
- 
-function renderResults() {
-	if (playerWord === correctWord) {
-		return winner; 
-	} else if (playerWord !== correctWord) {
-		return wrongGuesses++
-	// } else if (wrongGuesses === MAX_WRONG_GUESSES) {
+function whatIsCorrectWord() {
+// if (playerWord === correctWord) {
+// 		return winner; 
+// 	} else if (playerWord !== correctWord) {
+// 		return wrongGuesses++
+// 	} else if()
+// 	} else if (wrongGuesses === MAX_WRONG_GUESSES) {
 		 
 	// } I think i can add this on my evthanndle 
+}
+
+function whatIsPlayerWord() {
+
+}
+
+function calculateGuesses() {
+
+}
+
+function getWinner() {
+
+}
+
+function renderResults() {
 }
 
 function renderButton() {
