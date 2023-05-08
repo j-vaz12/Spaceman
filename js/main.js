@@ -47,8 +47,9 @@ function correctLtr() {
 	for (let i = 0; i < correctWord.length; i++) {
 		if (playerWord === correctWord[i]) {
 			return playerWord += correctWord
-		} else
+		} else {
 			break
+		}
 	}
 }
 
