@@ -24,7 +24,8 @@ initialize();
 function initialize() {
 	correctWord = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase("").split("");
 	console.log(correctWord, "this is line #26");
-	wordStatus = correctWord.map(ltr => ltr === "" ? "" : "_");
+	wordStatus = correctWord.map(ltr => ltr === "" ? "" : "_")
+	console.log(wordStatus)
 	/*playerWord = "_".repeat(correctWord.length); */ /* you can also use a for loop to visualize this better for a ex- for (let i = 0; i < correctWord.length; i++) {playerWord += "_";}  */
 	wrongGuesses = [];
 	winner = null;
@@ -33,37 +34,26 @@ function initialize() {
 }
 
 function handleLetterClick(evt) {
-	//my guard so that it will on handle evt when clicking in a button 
-	if (evt.target.tagName !== 'BUTTON') return;
-	// I need to make it so that the letter variable is set to whatever button the player picks
 	const letter = evt.target.innerText;
-	if (correctWord.includes(letter)) {
-		updatePlayerWord(letter);
-	} else {
-		updatedWrongGueses(letter)
-	}
+	//my guard so that it will on handle evt when clicking in a button 
+	if (evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || wordStatus.includes(letter)) return;
+	// I need to make it so that the letter variable is set to whatever button the player picks
+	updatePlayerWord(letter)
 	render();
 }
 
-function updatedWrongGueses(letter) {
-	if(wrongGuesses.length === MAX_WRONG_GUESSES) {
-		/*   must return the loss: in a render function picuture of spaceman is gone  */
-		/* Should I call that render function??? */
-	} else {
-		wrongGuesses.push(letter)
-	}
-}
+
 
 function updatePlayerWord(letter) {
-	let updatedWord = '';
-	for (let i = 0; i < correctWord.length; i++) {
-		if (correctWord[i] === letter) {
-			updatedWord += letter;
-		} else {
-			updatedWord += playerWord[i];
-		}
+	if (correctWord.includes(letter)) {
+		correctWord.forEach(function(ltr, idx) {
+			if (ltr === letter) {
+				wordStatus[idx] = letter; 
+			} else {
+				wrongGuesses.push(letter)
+			}
+		});
 	}
-	playerWord = updatedWord;
 }
 // Remember that the render is to vizualizing everything or all state om the DOM
 function render() {
@@ -73,9 +63,7 @@ function render() {
 }
 // function render 
 function renderResults() {
-	// playerWord = correctWord.length
-	rightLetterEl.innerText = wordStatus.join(" ");
-	
+	rightLetterEl.innerText = wordStatus.join(' ');
 	
 }
 
@@ -86,13 +74,3 @@ function renderButton() {
 
 // const imgPath = imgs/spaceman-0${wrongGuesses.length};
 
-
-// function correctLtr() {
-	// 	for (let i = 0; i < correctWord.length; i++) {
-		// 		if (playerWord === correctWord[i]) {
-// 			return playerWord += correctWord
-// 		} else {
-// 			wrongGuesses.push()
-// 		}
-// 	}
-// }
