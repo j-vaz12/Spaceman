@@ -28,7 +28,7 @@ function handleLetterClick(evt) {
 	// I need to make it so that the letter variable is set to whatever button the player picks
 	const letter = evt.target.innerText;
 	if (correctWord.includes(letter)) {
-		return playerWord;
+		updatePlayerWord(letter);
 	} else {
 		// wrongGuesses.push(...)
 	}
@@ -36,33 +36,36 @@ function handleLetterClick(evt) {
 }
 function initialize() {
 	correctWord = WORDS[Math.floor(Math.random() * WORDS.length)];
-	playerWord = "_".repeat(correctWord.length);
+	playerWord = "_"; for (let i = 0; i < correctWord.length; i++) { 
+		playerWord += "_";
+	}
+	/*playerWord = "_".repeat(correctWord.length); */ /* you can also use a for loop to visualize this better for a ex- for (let i = 0; i < correctWord.length; i++) {playerWord += "_";}  */
 	wrongGuesses = [];
 	winner = null;
 	render();
 }
 
-function correctLtr() {
-	for (let i = 0; i < correctWord.length; i++) {
-		if (playerWord === correctWord[i]) {
-			return playerWord += correctWord
-		} else {
-			wrongGuesses.push()
-		}
-	}
-}
-
-// function putLetter(letter) {
-// 	let updatedLetter = '';
+// function correctLtr() {
 // 	for (let i = 0; i < correctWord.length; i++) {
-// 		if (correctWord[i] === letter) {
-// 			updatedLetter = updatedLetter + letter;
+// 		if (playerWord === correctWord[i]) {
+// 			return playerWord += correctWord
 // 		} else {
-// 			updatedLetter = updatedLetter + playerWord
+// 			wrongGuesses.push()
 // 		}
 // 	}
-// 	playerWord = updatedLetter;
 // }
+
+function updatePlayerWord(letter) {
+	let updatedWord = '';
+	for (let i = 0; i < correctWord.length; i++) {
+		if (correctWord[i] === letter) {
+			updatedWord += letter;
+		} else {
+			updatedWord += playerWord[i]
+		}
+	}
+	playerWord = updatedWord;
+}
 
 // Remember that the render is to vizualizing everything or all state om the DOM
 function render() {
