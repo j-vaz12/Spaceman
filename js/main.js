@@ -6,7 +6,7 @@ const MAX_WRONG_GUESSES = 6;
 /*----- state variables -----*/
 /*let result;   correct word? Maybe this will come ones I start with the functions   */
 let correctWord;
-let playerWord;
+let wordStatus;
 let wrongGuesses;
 let winner;
 
@@ -21,6 +21,16 @@ document.querySelector('main').addEventListener('click', handleLetterClick);
 
 /*----- functions -----*/
 initialize();
+function initialize() {
+	correctWord = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase("").split("");
+	console.log(correctWord, "this is line #26");
+	wordStatus = correctWord.map(ltr => ltr === "" ? "" : "_");
+	/*playerWord = "_".repeat(correctWord.length); */ /* you can also use a for loop to visualize this better for a ex- for (let i = 0; i < correctWord.length; i++) {playerWord += "_";}  */
+	wrongGuesses = [];
+	winner = null;
+	render();
+
+}
 
 function handleLetterClick(evt) {
 	//my guard so that it will on handle evt when clicking in a button 
@@ -30,30 +40,19 @@ function handleLetterClick(evt) {
 	if (correctWord.includes(letter)) {
 		updatePlayerWord(letter);
 	} else {
-		// wrongGuesses.push(...)
+		updatedWrongGueses(letter)
 	}
-	render();
-}
-function initialize() {
-	correctWord = WORDS[Math.floor(Math.random() * WORDS.length)];
-	playerWord = "_"; for (let i = 0; i < correctWord.length; i++) { 
-		playerWord += "_";
-	}
-	/*playerWord = "_".repeat(correctWord.length); */ /* you can also use a for loop to visualize this better for a ex- for (let i = 0; i < correctWord.length; i++) {playerWord += "_";}  */
-	wrongGuesses = [];
-	winner = null;
 	render();
 }
 
-// function correctLtr() {
-// 	for (let i = 0; i < correctWord.length; i++) {
-// 		if (playerWord === correctWord[i]) {
-// 			return playerWord += correctWord
-// 		} else {
-// 			wrongGuesses.push()
-// 		}
-// 	}
-// }
+function updatedWrongGueses(letter) {
+	if(wrongGuesses.length === MAX_WRONG_GUESSES) {
+		/*   must return the loss: in a render function picuture of spaceman is gone  */
+		/* Should I call that render function??? */
+	} else {
+		wrongGuesses.push(letter)
+	}
+}
 
 function updatePlayerWord(letter) {
 	let updatedWord = '';
@@ -61,12 +60,11 @@ function updatePlayerWord(letter) {
 		if (correctWord[i] === letter) {
 			updatedWord += letter;
 		} else {
-			updatedWord += playerWord[i]
+			updatedWord += playerWord[i];
 		}
 	}
 	playerWord = updatedWord;
 }
-
 // Remember that the render is to vizualizing everything or all state om the DOM
 function render() {
 	renderResults();
@@ -76,13 +74,25 @@ function render() {
 // function render 
 function renderResults() {
 	// playerWord = correctWord.length
-	rightLetterEl.innerText = playerWord;
+	rightLetterEl.innerText = wordStatus.join(" ");
 	
-
+	
 }
 
 function renderButton() {
-
+	
 }
+
+
 // const imgPath = imgs/spaceman-0${wrongGuesses.length};
 
+
+// function correctLtr() {
+	// 	for (let i = 0; i < correctWord.length; i++) {
+		// 		if (playerWord === correctWord[i]) {
+// 			return playerWord += correctWord
+// 		} else {
+// 			wrongGuesses.push()
+// 		}
+// 	}
+// }
