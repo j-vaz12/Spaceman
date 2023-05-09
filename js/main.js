@@ -28,17 +28,16 @@ function handleLetterClick(evt) {
 	// I need to make it so that the letter variable is set to whatever button the player picks
 	const letter = evt.target.innerText;
 	if (correctWord.includes(letter)) {
-		return correctLtr();
+		return playerWord;
 	} else {
-		wrongGuesses++
-		console.log(wrongGuesses)
+		// wrongGuesses.push(...)
 	}
 	render();
 }
 function initialize() {
 	correctWord = WORDS[Math.floor(Math.random() * WORDS.length)];
-	playerWord = '';
-	wrongGuesses = 0;
+	playerWord = "_".repeat(correctWord.length);
+	wrongGuesses = [];
 	winner = null;
 	render();
 }
@@ -48,7 +47,7 @@ function correctLtr() {
 		if (playerWord === correctWord[i]) {
 			return playerWord += correctWord
 		} else {
-			break
+			wrongGuesses.push()
 		}
 	}
 }
@@ -73,7 +72,9 @@ function render() {
 }
 // function render 
 function renderResults() {
+	// playerWord = correctWord.length
 	rightLetterEl.innerText = playerWord;
+	
 
 }
 
