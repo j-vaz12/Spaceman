@@ -1,6 +1,7 @@
 /*----- constants -----*/
 const WORDS = ['MOON', 'NOVA', 'PLANET', 'ROCKET', 'MILKY WAY'];
-const MAX_WRONG_GUESSES = 6;
+const MAX_WRONG_GUESSES = 7;
+// const imgPath = imgs/spaceman-0${wrongGuesses.length};
 
 /*----- state variables -----*/
 /*let result;   correct word? Maybe this will come ones I start with the functions   */
