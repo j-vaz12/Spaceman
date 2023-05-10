@@ -64,6 +64,8 @@ function updateOutcome() {
 function render() {
 	renderWordStatus();
 	/*  to toggle the play again button also to make the apphabet  buttons un clocalbe */
+	// renderSpaceman();
+	//renderResults();
 	// renderButton();
 }
 // function render 
