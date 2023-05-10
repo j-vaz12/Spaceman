@@ -15,9 +15,13 @@ let winner;
 /*----- cached elements  -----*/
 const imgResultsEl = document.getElementById('game-result');
 const winResultEl = document.querySelector('p');
-const rightLetterEl = document.querySelector('div');
+const wordStatEL = document.querySelector('div');
+const allBtn = document.querySelectorAll('main > button');
+const playAgainBtn = document.getElementById('play')
 /*----- event listeners -----*/
 document.querySelector('main').addEventListener('click', handleLetterClick);
+playAgainBtn.addEventListener('click', initialize)
+
 
 /*----- functions -----*/
 initialize();
@@ -65,11 +69,11 @@ function render() {
 	/*  to toggle the play again button also to make the apphabet  buttons un clocalbe */
 	renderSpaceMan();
 	renderResults();
-	// renderButton();
+	renderButton();
 }
 // function render 
 function renderWordStatus() {
-	rightLetterEl.textContent = wordStatus.join(' ');
+	wordStatEL.textContent = wordStatus.join(' ');
 }
 
 function renderSpaceMan() {
@@ -82,16 +86,21 @@ function renderResults() {
 	// if game satus is === L change winf result to text content `YOU LOSE the correct word is {correct.join("")}`
 	// else change text content to maxwrong - wronggueses.length 
 	if (winner ===  "W") {  
-		winResultEl.innerText = "You Win!!!"
+		winResultEl.innerText = "You Win!!!";
 	} else if (winner === "L") {
-		winResultEl.innerText= "YOU LOST HAHAHA!!!"
+		winResultEl.innerText= "YOU LOST HAHAHA!!!";
 	} else {
-		winResultEl.innerText = `Guesses Remaining: ${MAX_WRONG_GUESSES - wrongGuesses.length}`
+		winResultEl.innerText = `Guesses Remaining: ${MAX_WRONG_GUESSES - wrongGuesses.length}`;
 	}
 }
 
 function renderButton() {
 //todo cache the elment buttons "main > button" forEach that element 
+	allBtn.forEach(function(btn, idx) {
+		if(btn.innerText === letter) {
+			btn.classList.toggle('right')
+		}
+	});
 // letter = button.tectContent or run check
 //if wrongguess.included letter change bttuon class name to wrong
 // else if word status includes letter change the button class to correct
