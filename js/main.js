@@ -77,18 +77,18 @@ function renderSpaceMan() {
 	// todo change the img source to wronguesses.length src="spaceman-images/spaceman-{wrongGuesses.length}.jpg
 }
 
-function renderResults() {  
-	// todo if game satus is === W change winresults text content to "YOU WIN!!"
-	// if game satus is === L change winf result to text content `YOU LOSE the correct word is {correct.join("")}`
-	// else change text content to maxwrong - wronggueses.length 
-	if () {  
+// function renderResults() {  
+// 	// todo if game satus is === W change winresults text content to "YOU WIN!!"
+// 	// if game satus is === L change winf result to text content `YOU LOSE the correct word is {correct.join("")}`
+// 	// else change text content to maxwrong - wronggueses.length 
+// 	if () {  
 
-	} else if () {
+// 	} else if () {
 
-	} else {
+// 	} else {
 
-	}
-}
+// 	}
+// }
 
 function renderButton() {
 //todo cache the elment buttons "main > button" forEach that element 
