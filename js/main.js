@@ -1,7 +1,6 @@
 /*----- constants -----*/
 const WORDS = ['MOON', 'NOVA', 'PLANET', 'ROCKET', 'MILKY WAY'];
 const MAX_WRONG_GUESSES = 6;
-// const imgPath = imgs/spaceman-0${wrongGuesses.length};
 
 /*----- state variables -----*/
 /*let result;   correct word? Maybe this will come ones I start with the functions   */
@@ -30,7 +29,7 @@ function initialize() {
 	wrongGuesses = [];
 	winner = null;
 	render();
-
+	
 }
 
 function handleLetterClick(evt) {
@@ -68,13 +67,15 @@ function render() {
 	// renderButton();
 }
 // function render 
+const imgPath = imgs/spaceman-0${wrongGuesses.length};
 function renderResults() {
 	rightLetterEl.textContent = wordStatus.join(' ');
-
+	imgResultsEl.src = imgPath;
+	
 }
 
 function renderButton() {
-
+	
 }
 
 
