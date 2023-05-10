@@ -65,7 +65,7 @@ function render() {
 	renderWordStatus();
 	/*  to toggle the play again button also to make the apphabet  buttons un clocalbe */
 	renderSpaceMan();
-	//renderResults();
+	renderResults();
 	// renderButton();
 }
 // function render 
@@ -78,18 +78,18 @@ function renderSpaceMan() {
 	imgResultsEl.src = `spaceman-images/spaceman-${wrongGuesses.length}.jpg`
 }
 
-// function renderResults() {  
-// 	// todo if game satus is === W change winresults text content to "YOU WIN!!"
-// 	// if game satus is === L change winf result to text content `YOU LOSE the correct word is {correct.join("")}`
-// 	// else change text content to maxwrong - wronggueses.length 
-// 	if () {  
-
-// 	} else if () {
-
-// 	} else {
-
-// 	}
-// }
+function renderResults() {  
+	// todo if game satus is === W change winresults text content to "YOU WIN!!"
+	// if game satus is === L change winf result to text content `YOU LOSE the correct word is {correct.join("")}`
+	// else change text content to maxwrong - wronggueses.length 
+	if (winner ===  "W") {  
+		winResultEl.innerText = "You Win!!!"
+	} else if (winner === "L") {
+		winResultEl.innerText= "YOU LOST HAHAHA"
+	} else {
+		winResultEl.innerText = `Guesses Remaining: ${MAX_WRONG_GUESSES - wrongGuesses.length}`
+	}
+}
 
 function renderButton() {
 //todo cache the elment buttons "main > button" forEach that element 
