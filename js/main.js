@@ -1,6 +1,6 @@
 /*----- constants -----*/
 const WORDS = ['MOON', 'NOVA', 'PLANET', 'ROCKET', 'MILKY WAY'];
-const MAX_WRONG_GUESSES = 7;
+const MAX_WRONG_GUESSES = 6;
 // const imgPath = imgs/spaceman-0${wrongGuesses.length};
 
 /*----- state variables -----*/
