@@ -31,12 +31,11 @@ function initialize() {
 	wrongGuesses = [];
 	winner = null;
 	render();
-
 }
 
 function handleLetterClick(evt) {
 	const letter = evt.target.textContent;
-	if (evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || wordStatus.includes(letter)) return;
+	if (evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || wordStatus.includes(letter) || wrongGuesses.length >= MAX_WRONG_GUESSES) return;
 	if (correctWord.includes(letter)) {
 		correctWord.forEach(function (ltr, idx) {
 			if (ltr === letter) {
@@ -85,7 +84,7 @@ function renderResults() {
 	if (winner ===  "W") {  
 		winResultEl.innerText = "You Win!!!"
 	} else if (winner === "L") {
-		winResultEl.innerText= "YOU LOST HAHAHA"
+		winResultEl.innerText= "YOU LOST HAHAHA!!!"
 	} else {
 		winResultEl.innerText = `Guesses Remaining: ${MAX_WRONG_GUESSES - wrongGuesses.length}`
 	}
