@@ -64,7 +64,7 @@ function updateOutcome() {
 function render() {
 	renderWordStatus();
 	/*  to toggle the play again button also to make the apphabet  buttons un clocalbe */
-	// renderSpaceman();
+	renderSpaceMan();
 	//renderResults();
 	// renderButton();
 }
@@ -75,6 +75,7 @@ function renderWordStatus() {
 
 function renderSpaceMan() {
 	// todo change the img source to wronguesses.length src="spaceman-images/spaceman-{wrongGuesses.length}.jpg
+	imgResultsEl.src = `spaceman-images/spaceman-${wrongGuesses.length}.jpg`
 }
 
 // function renderResults() {  
