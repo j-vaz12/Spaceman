@@ -21,6 +21,14 @@ body {
     align-items: center;
 }
 
+.wrong {
+    background-color: red;
+}
+
+.right {
+    background-color: pink;
+}
+
 h1 {
     font-size: 4vmin;
     font-family: 'Comic Neue', cursive;
