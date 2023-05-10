@@ -14,13 +14,14 @@ let winner;
 
 /*----- cached elements  -----*/
 const imgResultsEl = document.getElementById('game-result');
-const guessesRemainEl = document.querySelector('p');
+const winResultEl = document.querySelector('p');
 const rightLetterEl = document.querySelector('div');
 /*----- event listeners -----*/
 document.querySelector('main').addEventListener('click', handleLetterClick);
 
 /*----- functions -----*/
 initialize();
+
 function initialize() {
 	correctWord = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase().split("");
 	console.log(correctWord, "this is line #26");
@@ -35,27 +36,25 @@ function initialize() {
 
 function handleLetterClick(evt) {
 	const letter = evt.target.textContent;
-	//my guard so that it will on handle evt when clicking in a button 
 	if (evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || wordStatus.includes(letter)) return;
-	// I need to make it so that the letter variable is set to whatever button the player picks
 	if (correctWord.includes(letter)) {
 		correctWord.forEach(function (ltr, idx) {
 			if (ltr === letter) {
 				wordStatus[idx] = letter;
-			} else {
-				wrongGuesses.push(letter);  /*  this code is broken: not displaying wrong words to the array  */
 			}
 		});
+	} else {
+		wrongGuesses.push(letter);
 	}
-	updateOutcome();
+	winner = updateOutcome();
 	render();
 }
 
 function updateOutcome() {
-	if (wordStatus === correctWord) {
-		/* winner =   I know this has more to it  */
-	} else if (wordStatus.length > MAX_WRONG_GUESSES) {
-		/*   assing 'L' to outcome   */
+	if (!wordStatus.includes('_')) {
+		return 'W'
+	} else if (wrongGuesses.length >= MAX_WRONG_GUESSES) {
+		return 'L'
 	} else {
 		return null;
 	}
@@ -63,20 +62,40 @@ function updateOutcome() {
 
 // Remember that the render is to vizualizing everything or all state om the DOM
 function render() {
-	renderResults();
+	renderWordStatus();
 	/*  to toggle the play again button also to make the apphabet  buttons un clocalbe */
+	// renderSpaceman();
+	//renderResults();
 	// renderButton();
 }
 // function render 
-const imgPath = imgs/spaceman-0${wrongGuesses.length};
-function renderResults() {
+function renderWordStatus() {
 	rightLetterEl.textContent = wordStatus.join(' ');
-	imgResultsEl.src = imgPath;
-	
 }
 
+function renderSpaceMan() {
+	// todo change the img source to wronguesses.length src="spaceman-images/spaceman-{wrongGuesses.length}.jpg
+}
+
+// function renderResults() {  
+// 	// todo if game satus is === W change winresults text content to "YOU WIN!!"
+// 	// if game satus is === L change winf result to text content `YOU LOSE the correct word is {correct.join("")}`
+// 	// else change text content to maxwrong - wronggueses.length 
+// 	if () {  
+
+// 	} else if () {
+
+// 	} else {
+
+// 	}
+// }
+
 function renderButton() {
-	
+//todo cache the elment buttons "main > button" forEach that element 
+// letter = button.tectContent or run check
+//if wrongguess.included letter change bttuon class name to wrong
+// else if word status includes letter change the button class to correct
+// else button.class name is epmepty string
 }
 
 
