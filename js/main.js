@@ -39,7 +39,7 @@ function initialize() {
 
 function handleLetterClick(evt) {
 	const letter = evt.target.textContent;
-	if (evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || wordStatus.includes(letter) || wrongGuesses.length >= MAX_WRONG_GUESSES) return;
+	if (evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || wordStatus.includes(letter) || winner) return;
 	if (correctWord.includes(letter)) {
 		correctWord.forEach(function (ltr, idx) {
 			if (ltr === letter) {
@@ -69,7 +69,7 @@ function render() {
 	/*  to toggle the play again button also to make the apphabet  buttons un clocalbe */
 	renderSpaceMan();
 	renderResults();
-	renderButton();
+	// renderButton();
 }
 // function render 
 function renderWordStatus() {
@@ -94,20 +94,20 @@ function renderResults() {
 	}
 }
 
-function renderButton() {
-	//todo cache the elment buttons "main > button" forEach that element 
-	allBtn.forEach(function (btn, idx) {
-		if (btn.innerText ===  /*  letter is not in scope bc its not global   */) {
-			btn.classList.toggle('right')
-		} else if () {
-			tf
-		}
-	});
-	// letter = button.tectContent or run check
-	//if wrongGuess.included letter change bttuon class name to wrong
-	// else if word status includes letter change the button class to correct
-	// else button.class name is epmepty string
-}
+// function renderButton() {
+// 	//todo cache the elment buttons "main > button" forEach that element 
+// 	allBtn.forEach(function (btn, idx) {
+// 		if (btn.innerText ===  /*  letter is not in scope bc its not global   */) {
+// 			btn.classList.toggle('right')
+// 		} else if () {
+// 			tf
+// 		}
+// 	});
+// 	// letter = button.tectContent or run check
+// 	//if wrongGuess.included letter change bttuon class name to wrong
+// 	// else if word status includes letter change the button class to correct
+// 	// else button.class name is epmepty string
+// }
 
 
 // const imgPath = imgs/spaceman-0${wrongGuesses.length};
