@@ -24,7 +24,6 @@ initialize();
 
 function initialize() {
 	correctWord = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase().split("");
-	console.log(correctWord, "this is line #26");
 	wordStatus = correctWord.map(ltr => ltr === " " ? " " : "_");
 	wrongGuesses = [];
 	winner = null;
@@ -91,7 +90,7 @@ function renderButton() {
 		} else if (wordStatus.includes(letter)) {
 			btn.classList.add('right');
 		} else {
-			btn.classList.remove('wrong', 'right');  /*  ask Mario or whoever about the return tmrw */
+			btn.classList.remove('wrong', 'right');
 		}
 	});
 }
