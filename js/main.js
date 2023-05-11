@@ -1,27 +1,22 @@
 /*----- constants -----*/
-const WORDS = ['MOON', 'NOVA', 'PLANET', 'ROCKET', 'MILKY WAY'];
+const WORDS = ['MOON', 'NOVA', 'PLANET', 'ROCKET', 'MILKY WAY',];
 const MAX_WRONG_GUESSES = 6;
-// const imgPath = imgs/spaceman-0${wrongGuesses.length};
 
 /*----- state variables -----*/
-/*let result;   correct word? Maybe this will come ones I start with the functions   */
 let correctWord;
 let wordStatus;
 let wrongGuesses;
 let winner;
-
-// let correctGuess;  look at what jim said in the gc
-
 /*----- cached elements  -----*/
 const imgResultsEl = document.getElementById('game-result');
 const winResultEl = document.querySelector('p');
 const wordStatEL = document.querySelector('div');
 const allBtn = document.querySelectorAll('main > button');
+console.log(allBtn.length)
 const playAgainBtn = document.getElementById('play')
 /*----- event listeners -----*/
 document.querySelector('main').addEventListener('click', handleLetterClick);
 playAgainBtn.addEventListener('click', initialize)
-
 
 /*----- functions -----*/
 initialize();
@@ -39,7 +34,7 @@ function initialize() {
 
 function handleLetterClick(evt) {
 	const letter = evt.target.textContent;
-	if (evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || wordStatus.includes(letter) || winner) return;
+	if (evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || wordStatus.includes(letter) || winner ) return;
 	if (correctWord.includes(letter)) {
 		correctWord.forEach(function (ltr, idx) {
 			if (ltr === letter) {
@@ -63,21 +58,18 @@ function updateOutcome() {
 	}
 }
 
-// Remember that the render is to vizualizing everything or all state om the DOM
+
 function render() {
 	renderWordStatus();
-	/*  to toggle the play again button also to make the apphabet  buttons un clocalbe */
 	renderSpaceMan();
 	renderResults();
-	// renderButton();
+	renderButton();
 }
-// function render 
 function renderWordStatus() {
 	wordStatEL.textContent = wordStatus.join(' ');
 }
 
 function renderSpaceMan() {
-	// todo change the img source to wronguesses.length src="spaceman-images/spaceman-{wrongGuesses.length}.jpg
 	imgResultsEl.src = `spaceman-images/spaceman-${wrongGuesses.length}.jpg`
 }
 
@@ -88,21 +80,26 @@ function renderResults() {
 	if (winner === "W") {
 		winResultEl.innerText = "You Win!!!";
 	} else if (winner === "L") {
-		winResultEl.innerText = "YOU LOST HAHAHA!!!";
+		winResultEl.innerText = "HAHA U SUCK!!!";
 	} else {
 		winResultEl.innerText = `Guesses Remaining: ${MAX_WRONG_GUESSES - wrongGuesses.length}`;
 	}
 }
 
-// function renderButton() {
-// 	//todo cache the elment buttons "main > button" forEach that element 
-// 	allBtn.forEach(function (btn, idx) {
-// 		if (btn.innerText ===  /*  letter is not in scope bc its not global   */) {
-// 			btn.classList.toggle('right')
-// 		} else if () {
-// 			tf
-// 		}
-// 	});
+function renderButton() {
+	allBtn.forEach(function(btn) {
+		letter = btn.innerHTML
+		if (wrongGuesses.includes(letter)) {
+			btn.classList.add('wrong');
+		} else if (wordStatus.includes(letter)) {
+			btn.classList.add('right');
+		} else {
+			return
+		}
+	});
+}
+
+
 // 	// letter = button.tectContent or run check
 // 	//if wrongGuess.included letter change bttuon class name to wrong
 // 	// else if word status includes letter change the button class to correct
@@ -110,5 +107,4 @@ function renderResults() {
 // }
 
 
-// const imgPath = imgs/spaceman-0${wrongGuesses.length};
 
