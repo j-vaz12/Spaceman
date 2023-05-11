@@ -22,9 +22,11 @@ Loss screen
 ## 🔥 Getting Started 
 <details open>
 <summary> Rules </summary>
+
 1. To start, press any letter in the word bank to initialize your first guess.
 2. Keep selecting a letter until you either guess the word or lose and the spaceman disapears. 
 3. Click the Play Again button to replay.
+
 </details>
 
 ## Next steps 
