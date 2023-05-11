@@ -20,6 +20,9 @@ Loss screen
 - VS Code
 
 ## 🔥 Getting Started 
+
+![Game link](https://j-vaz12.github.io/Spaceman/)
+
 <details open>
 <summary> Rules </summary>
 

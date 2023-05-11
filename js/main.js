@@ -77,7 +77,7 @@ function renderResults() {
 	if (winner === "W") {
 		winResultEl.innerText = "You Win!!!";
 	} else if (winner === "L") {
-		winResultEl.innerText = "You took a L!!!";
+		winResultEl.innerText = "HAHA YOU LOST";
 	} else {
 		winResultEl.innerText = `Guesses Remaining: ${MAX_WRONG_GUESSES - wrongGuesses.length}`;
 	}
