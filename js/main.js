@@ -13,7 +13,7 @@ const imgResultsEl = document.getElementById('game-result');
 const winResultEl = document.querySelector('p');
 const wordStatEL = document.querySelector('div');
 const allBtn = document.querySelectorAll('main > button');
-const playAgainBtn = document.getElementById('play')
+const playAgainBtn = document.getElementById('play');
 
 /*----- event listeners -----*/
 document.querySelector('main').addEventListener('click', handleLetterClick);
@@ -24,13 +24,12 @@ initialize();
 
 function initialize() {
 	correctWord = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase().split("");
-	console.log(correctWord, "this is line #26");
 	wordStatus = correctWord.map(ltr => ltr === " " ? " " : "_");
 	wrongGuesses = [];
 	winner = null;
 	toyAudio.play();
 	render();
-	
+
 }
 
 function handleLetterClick(evt) {
@@ -78,7 +77,7 @@ function renderResults() {
 	if (winner === "W") {
 		winResultEl.innerText = "You Win!!!";
 	} else if (winner === "L") {
-		winResultEl.innerText = "HAHA U SUCK!!!";
+		winResultEl.innerText = "HAHA YOU LOST";
 	} else {
 		winResultEl.innerText = `Guesses Remaining: ${MAX_WRONG_GUESSES - wrongGuesses.length}`;
 	}
@@ -92,7 +91,7 @@ function renderButton() {
 		} else if (wordStatus.includes(letter)) {
 			btn.classList.add('right');
 		} else {
-			btn.classList.remove('wrong', 'right');  /*  ask Mario or whoever about the return tmrw */
+			btn.classList.remove('wrong', 'right');
 		}
 	});
 }
