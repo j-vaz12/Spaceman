@@ -30,7 +30,6 @@ function initialize() {
 	winner = null;
 	toyAudio.play();
 	render();
-
 }
 
 function handleLetterClick(evt) {
@@ -78,7 +77,7 @@ function renderResults() {
 	if (winner === "W") {
 		winResultEl.innerText = "You Win!!!";
 	} else if (winner === "L") {
-		winResultEl.innerText = "HAHA U SUCK!!!";
+		winResultEl.innerText = "You took a L!!!";
 	} else {
 		winResultEl.innerText = `Guesses Remaining: ${MAX_WRONG_GUESSES - wrongGuesses.length}`;
 	}
