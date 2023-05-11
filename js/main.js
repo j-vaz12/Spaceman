@@ -94,7 +94,7 @@ function renderButton() {
 		} else if (wordStatus.includes(letter)) {
 			btn.classList.add('right');
 		} else {
-			return
+			btn.classList.remove('wrong', 'right');  /*  ask Mario or whoever about the return tmrw */
 		}
 	});
 }
