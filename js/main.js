@@ -13,7 +13,7 @@ const imgResultsEl = document.getElementById('game-result');
 const winResultEl = document.querySelector('p');
 const wordStatEL = document.querySelector('div');
 const allBtn = document.querySelectorAll('main > button');
-const playAgainBtn = document.getElementById('play')
+const playAgainBtn = document.getElementById('play');
 
 /*----- event listeners -----*/
 document.querySelector('main').addEventListener('click', handleLetterClick);
