@@ -44,8 +44,8 @@ function handelLetterClick(evt) {
   -dispaly a message saying you won
   -display the play again button
 4.When player does not guess the correct word
-  -dispaly u lose 
-  -spaceman at this point is on the full page 
+  -dispaly a loss
+  -spaceman at this point is off the page 
 5. When player hits the play again button
   -spaceman will rest aka u cant see him 
   -correct word bank will be clear 
