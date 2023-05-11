@@ -1,6 +1,7 @@
 /*----- constants -----*/
 const WORDS = ['MOON', 'NOVA', 'PLANET', 'ROCKET', 'MILKY WAY',];
 const MAX_WRONG_GUESSES = 6;
+const toyAudio = new Audio('https://cdn.freesound.org/previews/232/232017_4063700-lq.mp3')
 
 /*----- state variables -----*/
 let correctWord;
@@ -12,8 +13,8 @@ const imgResultsEl = document.getElementById('game-result');
 const winResultEl = document.querySelector('p');
 const wordStatEL = document.querySelector('div');
 const allBtn = document.querySelectorAll('main > button');
-console.log(allBtn.length)
 const playAgainBtn = document.getElementById('play')
+
 /*----- event listeners -----*/
 document.querySelector('main').addEventListener('click', handleLetterClick);
 playAgainBtn.addEventListener('click', initialize)
@@ -25,16 +26,16 @@ function initialize() {
 	correctWord = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase().split("");
 	console.log(correctWord, "this is line #26");
 	wordStatus = correctWord.map(ltr => ltr === " " ? " " : "_");
-	console.log(wordStatus)
-	/*playerWord = "_".repeat(correctWord.length); */ /* you can also use a for loop to visualize this better for a ex- for (let i = 0; i < correctWord.length; i++) {playerWord += "_";}  */
 	wrongGuesses = [];
 	winner = null;
+	toyAudio.play();
 	render();
+
 }
 
 function handleLetterClick(evt) {
 	const letter = evt.target.textContent;
-	if (evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || wordStatus.includes(letter) || winner ) return;
+	if (evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || wordStatus.includes(letter) || winner) return;
 	if (correctWord.includes(letter)) {
 		correctWord.forEach(function (ltr, idx) {
 			if (ltr === letter) {
@@ -45,6 +46,7 @@ function handleLetterClick(evt) {
 		wrongGuesses.push(letter);
 	}
 	winner = updateOutcome();
+	toyAudio.play();
 	render();
 }
 
@@ -57,7 +59,6 @@ function updateOutcome() {
 		return null;
 	}
 }
-
 
 function render() {
 	renderWordStatus();
@@ -74,9 +75,6 @@ function renderSpaceMan() {
 }
 
 function renderResults() {
-	// todo if game satus is === W change winresults text content to "YOU WIN!!"
-	// if game satus is === L change winf result to text content `YOU LOSE the correct word is {correct.join("")}`
-	// else change text content to maxwrong - wronggueses.length 
 	if (winner === "W") {
 		winResultEl.innerText = "You Win!!!";
 	} else if (winner === "L") {
@@ -87,7 +85,7 @@ function renderResults() {
 }
 
 function renderButton() {
-	allBtn.forEach(function(btn) {
+	allBtn.forEach(function (btn) {
 		letter = btn.innerHTML
 		if (wrongGuesses.includes(letter)) {
 			btn.classList.add('wrong');
@@ -98,13 +96,4 @@ function renderButton() {
 		}
 	});
 }
-
-
-// 	// letter = button.tectContent or run check
-// 	//if wrongGuess.included letter change bttuon class name to wrong
-// 	// else if word status includes letter change the button class to correct
-// 	// else button.class name is epmepty string
-// }
-
-
 
