@@ -1,10 +1,10 @@
 # Spaceman!!!
 
-## Descriptiom 
+## 📝Description 
 
 Spaceman, commonly referred to as "Hangman," is a popular word-guessing game. The main objective is to guess a hidden word or phrase by suggesting letters with a limited number of attempts.
 
-## Screenshots 
+## 📸 Screenshots 
 Start screen:
 <img src="https://i.imgur.com/IcbxdtK.png">
 Win screen:
