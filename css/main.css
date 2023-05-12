@@ -48,10 +48,13 @@ p {
     color: white;
     font-family: 'Comic Neue', cursive;
     border: 2px solid #dadada;
-    border-radius: 10px;;
+    border-radius: 10px;
+    ;
     outline: none;
-    border-color: #4b0ee5;;
-    box-shadow: 0 0 10px #4b0ee5;;
+    border-color: #4b0ee5;
+    ;
+    box-shadow: 0 0 10px #4b0ee5;
+    ;
     margin-left: auto;
     margin-right: auto;
     text-shadow:
@@ -68,7 +71,7 @@ p {
 img {
     margin-left: auto;
     margin-right: auto;
-    
+
 }
 
 div {
@@ -76,7 +79,8 @@ div {
     letter-spacing: 1vmin;
     font-size: 5vmin;
 }
-main > button {
+
+main>button {
     font-family: 'Comic Neue', cursive;
     color: white;
     background-color: black;
@@ -84,7 +88,7 @@ main > button {
     font-size: 3vmin;
 }
 
-main > button:hover {
+main>button:hover {
     background-color: white;
     color: black;
 }
