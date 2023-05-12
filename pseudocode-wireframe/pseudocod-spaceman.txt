@@ -1,45 +1,9 @@
 
- /*----- constants -----*/
--wrong max guesses 
--Define array of all correct words 
-
-  /*----- state variables -----*/
-
--wrong guess
--player word
--correct word
--winner 
--render
-
-  /*----- cached elements  -----*/
--play again button 
--whatever element the guess remaining text is at 
-
-  /*----- event listeners -----*/
--when player clicks the board of alphabet 
--play again button when clicked
-
-  /*----- functions -----*/
--initialize 
--render
-–correct word 
- 
-
-??????????????
-function handelLetterClick(evt) {
-  const ltr = evt.target.innerText
-  // ??????????????
-  //
-
-  render()
-}
-
-
 1. when loading to page render the letter bank that is the alphabet, button and image of the hanger thing
 2. when player clicks on a letter
   -if player clicks on the right letter , display the correct letter on the _ "correct word bank". 
   -if player cliks on the wrong letter mark the letter red and make it unclickable
-    -also update the spacemam picture aka add a body part of the spaceman to the middle of the page 
+    -also update the spacemam picture take off part of the spaceman 
 3. when player gueses the correct word 
   -dispaly a message saying you won
   -display the play again button
@@ -47,7 +11,7 @@ function handelLetterClick(evt) {
   -dispaly a loss
   -spaceman at this point is off the page 
 5. When player hits the play again button
-  -spaceman will rest aka u cant see him 
+  -spaceman will rest  
   -correct word bank will be clear 
   -all the words in the alphabet will go back to the normal color
     -will be clickable 
