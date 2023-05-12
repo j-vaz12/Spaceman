@@ -15,7 +15,8 @@ const allBtn = document.querySelectorAll('main > button');
 const playAgainBtn = document.getElementById('play');
 /*----- event listeners -----*/
 document.querySelector('main').addEventListener('click', handleLetterClick);
-playAgainBtn.addEventListener('click', initialize)
+playAgainBtn.addEventListener('click', handlePlayAgain);
+
 /*----- functions -----*/
 initialize();
 
@@ -24,7 +25,6 @@ function initialize() {
 	wordStatus = correctWord.map(ltr => ltr === " " ? " " : "_");
 	wrongGuesses = [];
 	winner = null;
-	toyAudio.play();
 	render();
 
 }
@@ -92,3 +92,7 @@ function renderButton() {
 		}
 	});
 }
+function handlePlayAgain() {
+	toyAudio.play();
+	initialize();
+  }
